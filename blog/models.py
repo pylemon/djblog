@@ -1,6 +1,7 @@
 # coding=utf8
 from django.db import models
 from django.contrib.auth.models import User
+import misaka
 
 
 class Post(models.Model):
@@ -11,6 +12,11 @@ class Post(models.Model):
 
     class Meta:
         ordering = ('-pub_date',)
+        verbose_name = u'文章'
+        verbose_name_plural = u'文章'
+
+    def __unicode__(self):
+        return self.title
 
     @classmethod
     def add_post(cls, title, content, author, pub_date):
@@ -28,3 +34,6 @@ class Post(models.Model):
 
     def get_pub_date_display(self):
         return self.pub_date.strftime("%Y-%m-%d %H:%m")
+
+    def get_content_display(self):
+        return misaka.html(self.content)

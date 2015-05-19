@@ -11,7 +11,7 @@ def home(request):
     ctx.update({
         'posts': [{
             'title': p.title,
-            'content': p.content,
+            'content': p.get_content_display(),
             'author': p.author,
             'pub_date': p.get_pub_date_display(),
         } for p in posts]

@@ -1,4 +1,6 @@
 Django
 ipython
 django-grappelli
+django-extensions
+misaka
 
