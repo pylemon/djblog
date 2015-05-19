@@ -2,17 +2,13 @@
 
 {% block content %}
 <!-- 文章列表开始 -->
-{% for x in 'xxxx' %}
+{% for post in posts %}
 <div class="post text">
     <h2>
-        <a href="">这里是标题</a>
+        <a href="">{{ post.title }}</a>
     </h2>
-    <p><em>2015年5月8日</em></p>
-    <p>By popular demand I have finally pulled all of the
-        templates on Start Bootstrap into their own personal
-        GitHub repository! What this means is that you can
-        easily fork a template to start a new project directly
-        in GitHub.</p>
+    <p><span class="glyphicon glyphicon-time"></span>&nbsp;<em>{{ post.pub_date }}</em></p>
+    {{ post.content|safe }}
     <p class="read_more_container">
         <a href="" class="read_more">阅读全文</a>
     </p>
